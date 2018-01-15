@@ -1,0 +1,133 @@
+[
+    {
+        "id": 1,
+        "prodName": "Winter Jacket",
+        "prodDesc": "Winter jacket with 100% organic material and handcrafted, good-looking details.",
+        "prodPic": "./bild/wjacket.jpg",
+        "prodPrice": 1199,
+        "huvudKat": 1,
+        "underKat": 1
+    },{
+        "id": 1,
+        "prodName": "Winter Legging",
+        "prodDesc": "Winter leggings with 100% organic material, functional and easy carried.",
+        "prodPic": "./bild/wlegging.jpg",
+        "prodPrice": 799,
+        "huvudKat": 1,
+        "underKat": 1
+    },{
+        "id": 1,
+        "prodName": "Winter Boot",
+        "prodDesc": "Well made Winter boots with steel toe-cap and robust material.",
+        "prodPic": "./bild/wboots.jpg",
+        "prodPrice": 1499,
+        "huvudKat": 1,
+        "underKat": 1
+    },{
+        "id": 1,
+        "prodName": "Winter Glove",
+        "prodDesc": "Winter gloves with phone-touch ability and warm material, so you can use your phone and never freeze your fingers.",
+        "prodPic": "./bild/wglove.jpg",
+        "prodPrice": 599,
+        "huvudKat": 1,
+        "underKat": 1
+    },{
+        "id": 2,
+        "prodName": "Spring Jacket",
+        "prodDesc": "Spring jacket with 100% organic material and handcrafted, good-looking details.",
+        "prodPic": "./bild/sjacket.jpg",
+        "prodPrice": 3999,
+        "huvudKat": 2,
+        "underKat": 2
+    },{
+        "id": 2,
+        "prodName": "Spring Jeans",
+        "prodDesc": "Jeans with 100% organic cotton, in association with Nudie Jeans.",
+        "prodPic": "./bild/sjeans.jpg",
+        "prodPrice": 1199,
+        "huvudKat": 2,
+        "underKat": 2
+    },{
+        "id": 2,
+        "prodName": "Spring Shoes",
+        "prodDesc": "Shoes with 100% organic material, in association with Vans.",
+        "prodPic": "./bild/sshoes.jpg",
+        "prodPrice": 899,
+        "huvudKat": 2,
+        "underKat": 2
+    },{
+        "id": 2,
+        "prodName": "Spring Shirt",
+        "prodDesc": "T-Shirt with 100% organic cotton, in different colors. In association with Weekday.",
+        "prodPic": "./bild/sshirt.jpg",
+        "prodPrice": 199,
+        "huvudKat": 2,
+        "underKat": 2
+    },{
+        "id": 3,
+        "prodName": "Summer Shorts",
+        "prodDesc": "Shorts with 100% organic material, have a great day on the beach!",
+        "prodPic": "./bild/sumshorts.jpg",
+        "prodPrice": 399,
+        "huvudKat": 3,
+        "underKat": 3
+    },{
+        "id": 3,
+        "prodName": "Summer Shirt",
+        "prodDesc": "Good-looking Shirt with 100% organic cotton, in different colors. ",
+        "prodPic": "./bild/sumshirt.jpg",
+        "prodPrice": 699,
+        "huvudKat": 3,
+        "underKat": 3
+    },{
+        "id": 3,
+        "prodName": "Summer Sandals",
+        "prodDesc": "Sandals made of used tires from Brazil. Sustainable development, indeed!",
+        "prodPic": "./bild/sumsandals.jpg",
+        "prodPrice": 999,
+        "huvudKat": 3,
+        "underKat": 3
+    },{
+        "id": 3,
+        "prodName": "Summer Glasses",
+        "prodDesc": "Sunglasses in association with Ray Ban.",
+        "prodPic": "./bild/sumsunglasses.jpg",
+        "prodPrice": 799,
+        "huvudKat": 3,
+        "underKat": 3
+    },{
+        "id": 4,
+        "prodName": "Autumn Jacket",
+        "prodDesc": "Autumn jacket with 100% organic material and handcrafted, good-looking details.",
+        "prodPic": "./bild/ajacket.jpg",
+        "prodPrice": 3999,
+        "huvudKat": 4,
+        "underKat": 4
+    },{
+        "id": 4,
+        "prodName": "Autumn Jeans",
+        "prodDesc": "Jeans with 100% organic cotton, in association with Nudie Jeans.",
+        "prodPic": "./bild/ajeans.jpg",
+        "prodPrice": 1199,
+        "huvudKat": 4,
+        "underKat": 4
+    },{
+        "id": 4,
+        "prodName": "Autumn Shoes",
+        "prodDesc": "Shoes with 100% organic material, in association with Vans.",
+        "prodPic": "./bild/ashoes.jpg",
+        "prodPrice": 899,
+        "huvudKat": 4,
+        "underKat": 4
+    },{
+        "id": 4,
+        "prodName": "Autumn Shirt",
+        "prodDesc": "T-Shirt with 100% organic cotton, in different colors. In association with Weekday.",
+        "prodPic": "./bild/ashirt.jpg",
+        "prodPrice": 199,
+        "huvudKat": 4,
+        "underKat": 4
+    }
+
+
+]
