@@ -12,8 +12,88 @@ $(document).ready(function(){
         });
     });
 
+    user = "admin"
+    password = "admin"
+
+    if(sessionStorage.saveUser != null ){
+        }else{
+    
+            $("#login").click(function(){
+         
+                //Om password och username stämmer loggas användare in och sparas i sessionstorage
+                if( $("#user").val() == user && $("#password").val() == password) {
+    
+                    thisUserIsLoggedIn();
+                    sessionStorage.saveUser = user;
+    
+    
+                //annars visas glömt lösenord
+                    }else{
+                        $(".formWrap").hide();
+                        $("#Lost").show();
+                    }
+                
+            
+            });
+        }
+
+          //loggar ut användare
+    $("#logout").click(function(){
+        sessionStorage.removeItem("saveUser");
+        //location.reload();
+        document.location.href = "index.html";
+        $("#logout").hide();
+
+    });
+    function thisUserIsLoggedIn(){
+        //$("#login").("");
+        document.location.href = "admin.html";
+     $("#logout").show();
+
+    }
+    
+   
+    $("#rightPassword2").hide();
+    user2 = "kund"
+    password2 = "password"
+
+    if(sessionStorage.saveUser != null ){
+        thisUserIsLoggedIn2();
+        }else{
+    
+            $("#login").click(function(){
+                
+                //Om password och username stämmer loggas användare in och sparas i sessionstorage
+                if( $("#user").val() == user2 && $("#password").val() == password2) {
+    
+                    thisUserIsLoggedIn2();
+                    sessionStorage.saveUser = user;
+    
+    
+                //annars visas glömt lösenord
+                    }else{
+                        $(".formWrap").hide();
+                        $("#Lost").show();
+                    }
+                
+            
+            });
+        }
+
+          //loggar ut användare
+    $("#logout1").click(function(){
+        sessionStorage.removeItem("saveUser");
+        location.reload();
 
 
+    });
+
+    function thisUserIsLoggedIn2(){
+        $("#rightPassword2").show();
+        $("#logout1").show();
+        $("#prodList").hide();
+        
+    }
 
 
     /*$.getJSON('huvudkategorier.json', function(data){
@@ -36,7 +116,8 @@ $(document).ready(function(){
     function LoopHead() {
         
         for(i = 0; i < 3; i++) { 
-            $("#webshop").append('<p><a href="#" class="hcat'+[i]+'">'+webshop[i].category+'</a></p>');
+     
+            $("#webshop").append('<li class="slicknaw_item.slicknaw_row"><a href="#" role="menuitem" tabindex="0">'+webshop[i].category+'</a></li>');
         }
         
     }
@@ -52,17 +133,7 @@ $(document).ready(function(){
             html += '</ul></div>';
         }
         $('#subcategories').html(html);
-/*
-                        
-                            
-                            
-                                
-                                <li onclick="visaProdukt(x)">Produkt</li>
-                                <li onclick="visaProdukt(x)">Produkt</li>
-                                <li onclick="visaProdukt(x)">Produkt</li>
-                            
-                        
-*/
+
 
         /*for(i = 0; i < 4; i++) {
             $("#undercat").append('<a href="#" id="' + undercat[i].id + '">' + undercat[i].name + '    - </a>')
@@ -97,24 +168,17 @@ $(document).ready(function(){
         LoadProducts();
         var json_str = JSON.stringify(webshop);
         sessionStorage.lists = json_str;
-        console.log(products)
         
         function LoadProducts() {
             for(i = 0; i < 4; i++){
-                /*var products = products;
-                if (products < 4) { */
-                    
+
                     $("#product").append('<div> <a href="#" id="text ' + [i] + '">' + products[i].prodName + '   </a></div>')
 
                     
                 }
-                for(i = 4; i < 8; i++){
-                    /*var products = products;
-                    if (products < 4) { */
-                        
+                for(i = 4; i < 8; i++){                  
                         $("#product").append('<a href="#" id="text ' + [i] + '">' + products[i].prodName + '   </a>')
-    
-                        
+        
                     }
             }
             
@@ -152,12 +216,12 @@ $(document).ready(function(){
     {
     }
         
-    $('<h1 class="card" style="align-middle width: 40rem;">' + products[nr].id + '</h1>')
+    $('<h1 class="card" style="align-middle width: 25rem;">' + products[nr].id + '</h1>')
         .append('<img class="card-img-top" src=' + products[nr].prodPic + ' alt="Card image cap"> </img>')
         .append('<div class="card-block">')
         .append('<h1 class="card-title">' + products[nr].prodName + '</h1>')
         .append('<p class="card-text">' + products[nr].prodDesc + '</p>')
-        .append('<a href="#" class="btn btn-primary">' + products[nr].prodPrice + " SEK" + '</a>')
+        .append('<a href="#" onclick="addCart();" class="btn btn-primary">' + products[nr].prodPrice + " SEK" + '</a>')
         .append('</div> </div>')
         .appendTo($("#clothing"));
     }
@@ -171,7 +235,7 @@ $(document).ready(function(){
                     .append('<div class="card-block">')
                     .append('<h4 class="card-title">' + products[i].prodName + '</h4>')
                     .append('<p class="card-text">' + products[i].prodDesc + '</p>')
-                    .append('<a href="#" class="btn btn-primary">' + products[i].prodPrice + " SEK" + '</a>')
+                    .append('<a href="#" onclick="addCart();" class="btn btn-primary">' + products[i].prodPrice + " SEK" + '</a>')
                     .append('</div> </div>')
                 .appendTo($("#clothing"));
               
@@ -189,7 +253,7 @@ $(document).ready(function(){
             .append('<div class="card-block">')
             .append('<h4 class="card-title">' + products[i].prodName + '</h4>')
             .append('<p class="card-text">' + products[i].prodDesc + '</p>')
-            .append('<a href="#" class="btn btn-primary">' + products[i].prodPrice + " SEK" + '</a>')
+            .append('<a href="#" onclick="addCart();" class="btn btn-primary">' + products[i].prodPrice + " SEK" + '</a>')
             .append('</div> </div>')
         .appendTo($("#clothing"));
             
@@ -207,7 +271,7 @@ $(document).ready(function(){
             .append('<div class="card-block">')
             .append('<h4 class="card-title">' + products[i].prodName + '</h4>')
             .append('<p class="card-text">' + products[i].prodDesc + '</p>')
-            .append('<a href="#" class="btn btn-primary">' + products[i].prodPrice + " SEK" + '</a>')
+            .append('<a href="#" onclick="addCart();" class="btn btn-primary">' + products[i].prodPrice + " SEK" + '</a>')
             .append('</div> </div>')
         .appendTo($("#clothing"));
             
@@ -225,7 +289,7 @@ $(document).ready(function(){
             .append('<div class="card-block">')
             .append('<h4 class="card-title">' + products[i].prodName + '</h4>')
             .append('<p class="card-text">' + products[i].prodDesc + '</p>')
-            .append('<a href="#" class="btn btn-primary">' + products[i].prodPrice + " SEK" + '</a>')
+            .append('<a href="#" onclick="addCart();" class="btn btn-primary">' + products[i].prodPrice + " SEK" + '</a>')
             .append('</div> </div>')
         .appendTo($("#clothing"));
             
@@ -234,14 +298,8 @@ $(document).ready(function(){
         
         
     }
-    /* $('#undercat').click(function(){
-        $(".text0").show();
-        $(".text1").fadeTo( "slow" , 0.5 );
-        $(".text2").fadeTo( "slow" , 0.5 );
-        $(".text3").fadeTo( "slow" , 0.5 );
-        
-        console.log("test");
-    }); */
+  
+    
 
 
 
