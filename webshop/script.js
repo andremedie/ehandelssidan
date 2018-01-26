@@ -59,6 +59,7 @@ $(document).ready(function(){
 
     if(sessionStorage.saveUser != null ){
         thisUserIsLoggedIn2();
+        $("#buyBtn").show();
         }else{
     
             $("#login").click(function(){
@@ -68,6 +69,7 @@ $(document).ready(function(){
     
                     thisUserIsLoggedIn2();
                     sessionStorage.saveUser = user;
+                    $("#buyBtn").show();
     
     
                 //annars visas glömt lösenord
@@ -91,26 +93,12 @@ $(document).ready(function(){
     function thisUserIsLoggedIn2(){
         $("#rightPassword2").show();
         $("#logout1").show();
-        $("#prodList").hide();
-        
+        $("#prodList").show();
+        $("#custom").show();
+        $("#inlogg").hide();
+        $("#please").hide();
+        $("#buyBtn").show();
     }
-
-
-    /*$.getJSON('huvudkategorier.json', function(data){
-    webshop = data;
-    LoopHead();
-    var json_str = JSON.stringify(webshop);
-    sessionStorage.lists = json_str;
-    console.log(webshop)
-    });
-
-    $.getJSON('underkategorier.json', function(data){
-    undercat = data;
-    LoopUnder();
-    var json_str = JSON.stringify(webshop);
-    sessionStorage.lists = json_str;
-    console.log(undercat)
-    });*/
 
     
     function LoopHead() {
@@ -134,31 +122,6 @@ $(document).ready(function(){
         }
         $('#subcategories').html(html);
 
-
-        /*for(i = 0; i < 4; i++) {
-            $("#undercat").append('<a href="#" id="' + undercat[i].id + '">' + undercat[i].name + '    - </a>')
-            console.log(LoopUnder);
-            
-        }
-
-        
-        $("#undercat").on("click", "a", function(){ switch (Number(this.id)) {
-            case 1:
-            LoadWinter();
-            break;
-            case 2:
-            LoadSpring();
-            break;
-            case 3:
-            LoadSummer();
-            break;
-            case 4:
-            LoadAutumn();
-            break;
-            console.log(this.id);
-
-        }
-        });*/
     }
     
     $.getJSON('produkt.json', function(data){
@@ -221,7 +184,7 @@ $(document).ready(function(){
         .append('<div class="card-block">')
         .append('<h1 class="card-title">' + products[nr].prodName + '</h1>')
         .append('<p class="card-text">' + products[nr].prodDesc + '</p>')
-        .append('<a href="#" onclick="addCart();" class="btn btn-primary">' + products[nr].prodPrice + " SEK" + '</a>')
+        .append('<a href="#" onclick="addCart(' + products[nr].id + ');" class="btn btn-primary">' + products[nr].prodPrice + " SEK" + '</a>')
         .append('</div> </div>')
         .appendTo($("#clothing"));
     }
@@ -235,7 +198,7 @@ $(document).ready(function(){
                     .append('<div class="card-block">')
                     .append('<h4 class="card-title">' + products[i].prodName + '</h4>')
                     .append('<p class="card-text">' + products[i].prodDesc + '</p>')
-                    .append('<a href="#" onclick="addCart();" class="btn btn-primary">' + products[i].prodPrice + " SEK" + '</a>')
+                    .append('<a href="#" onclick="addCart(' + products[i].id + ');" class="btn btn-primary">' + products[i].prodPrice + " SEK" + '</a>')
                     .append('</div> </div>')
                 .appendTo($("#clothing"));
               
@@ -253,7 +216,7 @@ $(document).ready(function(){
             .append('<div class="card-block">')
             .append('<h4 class="card-title">' + products[i].prodName + '</h4>')
             .append('<p class="card-text">' + products[i].prodDesc + '</p>')
-            .append('<a href="#" onclick="addCart();" class="btn btn-primary">' + products[i].prodPrice + " SEK" + '</a>')
+            .append('<a href="#" onclick="addCart(' + products[i].id + ');" class="btn btn-primary">' + products[i].prodPrice + " SEK" + '</a>')
             .append('</div> </div>')
         .appendTo($("#clothing"));
             
@@ -271,7 +234,7 @@ $(document).ready(function(){
             .append('<div class="card-block">')
             .append('<h4 class="card-title">' + products[i].prodName + '</h4>')
             .append('<p class="card-text">' + products[i].prodDesc + '</p>')
-            .append('<a href="#" onclick="addCart();" class="btn btn-primary">' + products[i].prodPrice + " SEK" + '</a>')
+            .append('<a href="#" onclick="addCart(' + products[i].id + ');" class="btn btn-primary">' + products[i].prodPrice + " SEK" + '</a>')
             .append('</div> </div>')
         .appendTo($("#clothing"));
             
@@ -289,7 +252,7 @@ $(document).ready(function(){
             .append('<div class="card-block">')
             .append('<h4 class="card-title">' + products[i].prodName + '</h4>')
             .append('<p class="card-text">' + products[i].prodDesc + '</p>')
-            .append('<a href="#" onclick="addCart();" class="btn btn-primary">' + products[i].prodPrice + " SEK" + '</a>')
+            .append('<a href="#" onclick="addCart(' + products[i].id + ');" class="btn btn-primary">' + products[i].prodPrice + " SEK" + '</a>')
             .append('</div> </div>')
         .appendTo($("#clothing"));
             
@@ -300,31 +263,4 @@ $(document).ready(function(){
     }
   
     
-
-
-
-
-
-
-
-
-/* var cartCount = document.getElementById("#cart");
-
-
-
-
-buttonElement.onclick = function() {
-    numberOfProducts ++
-    
-    cartCount.innerText = numberOfProducts;
-
-}
-
-    productCard.appendChild(buttonElement);
-
-return productCard;
-
-
-
-} */
 

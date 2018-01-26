@@ -6,100 +6,108 @@ $(document).ready(function(){
             $.getJSON('produkt.json', function(data){
                     
                 products = data;
-});
-});
-function LoopCustom() {
+                fillCart();
+                $("#buyBtn").hide();
+    });
+   
     
-    for(i = 0; i < 3; i++) { 
-        $("#custom").append('<p>'+ "login/email: " +customer[i].email +'</p>');
-        $("#custom").append('<p>' + "password: " +customer[i].password +'</p>');
+    /* Lösenord / inlogg */
+    function LoopCustom() {
+        
+        for(i = 0; i < 4; i++) { 
+            $("#custom").append('<h2>'+ "login/email: " +customer[i].email +'</h2>');
+            $("#custom").append('<p>' + "password: " +customer[i].password +'</p>');
+        }
+        
+    }
+    $("#custom").hide();
+    
+   
+$("#customer").click(function(){
+    $("#custom").show();
+    });
+    /* Början av kundvagn */ 
+    
+    var products = ""
+    var cartList = JSON.parse(localStorage.getItem("cartList")) || [];
+    var totalProductsInCart = "";
+    var totalPrice = 0;
+         
+    addCart = function(val) {
+        
+        
+        cartList.push(val);
+        
+        localStorage.setItem("cartList", JSON.stringify(cartList));
+        
+        $("#cart").html("")
+            $("#cart").append(cartList.length)
+        totalProductsInCart++;
+        
+       
+        
+        
+       
+        
+    }
+        function fillCart() {
+        for(var j = 0; j < products.length; j++) {
+            for (var h = 0; h < cartList.length; h++) {
+                if(cartList[h] == products[j].id) {
+                    
+                    $('<h3 class="card" style="align-middle width: 5rem;"></h3>')
+                    
+                    .append('<h2 class="card-title">' + products[j].prodName + '</h2>')
+                    
+                    .append('<img class="card-img-top" src=' + products[j].miniPic + ' alt="Card image cap"> </img>')
+
+                    .append('<h3 href="#">' + products[j].prodPrice + " SEK" + ' </h3>')
+                    
+                    .append('</div>')
+                    
+                    .appendTo($("#prodList"));
+                 
+                    totalPrice += products[j].prodPrice;
+                    
+                }
+            }
+        
+        }
+        
+        $("#clickProduct").append("<p>Total Price in the Cart: " + totalPrice + " SEK + 55 SEK Shipping Fee <button onclick='deleteCart()'>X</button></p>");
+        $("#cart").html("")
+        $("#cart").append(cartList.length)
+        totalProductsInCart++;
     }
     
-}
-$("#custom").hide();
-
-$("#customer").click(function(){
-   $("#custom").show();
-
+    
+        
+    
+    
+    function LoadCart() {
+        var cart = JSON.parse(sessionStorage.getItem("cart"));
+        
+    }
+    
+    $("#clickProduct").append("<p>Number of Products in the Cart: " + cartList.length + "</p>");
+   
+    
 });
 
+function deleteCart() {
 
-    //var cart = JSON.parse(localStorage.getItem("cart"));
-    var products = "";
-    var cartList = [];
-    var totalProductsInCart = 0;
-    var totalPrice = 0;
+    localStorage.clear();
+    location.reload();
+    $("#prodList").empty();
     
-    
-//$(document).ready(function(){
-        //loadCart();
-        if(localStorage.cartList) cartList = JSON.parse(localStorage.cartList);
-        
-        addCart = function(val) {
-            
-            
-            cartList.push(val);
-            
-            localStorage.cartList = JSON.stringify(cartList);
-            $("#cart").html("")
-            $("#cart").append(cartList.length)
-            totalProductsInCart++;
-            LoadCart();
-        
-        
-        console.log(addCart);
-        
-        
-        for(var i = 0; i < cartList.length; i++) {
-            for(var h = 0; h < products.length; h++){
-                
-                if(cartList[i] == products[h].id) {
-                    $('<h1 class="card" style="align-middle width: 25rem;">' + products[h].id + '</h1>')
-                    
-                    .append('<h1 class="card-title">' + products[h].prodName + '</h1>')
-                    
-                    .append('<a href="#">' + products[h].prodPrice + " SEK" + '</a>')
-                    .append('</div>')
-                    .appendTo($("#prodList"));
-                    
-                    
-                    totalPrice += products[h].prodPrice
-                    
-                    
-                    
-                }
-            }    
-       }
-    } 
-                    function LoadCart() {
-                        
-                        for(var h = 0; h < products.length; h++) {
-                            for (i = 0; i < cartList.length; i++) {
-                                totalProductsInCart++;
-                            }
-                            if(cartList[i] == products[h].id){ 
-                        
-                        $('<h1 class="card" style="align-middle width: 25rem;">' + products[h].id + '</h1>')
-                        .append('<div class="card-block">')
-                        .append('<h1 class="card-title">' + products[h].prodName + '</h1>')
-                        .append('</div>')
-                        .appendTo($("#prodList"));
-                    }
-                }
-                }
-        
-        //$("#clickProduct").empty();
-        
-        $("#clickProduct").append("<p>Antal produkter i varukorgen: " + totalProductsInCart + "</p>");
-        $("#clickProduct").append("<p>Totalt pris på varukorgen: " + totalPrice + " kr</p>");
-        
+}
 
-    //totalPrice += products[j].prodPrice * cart[i].amount;
-    
-    //break;
-    
-    /*totalPrice += 55;
-        $(".totPrice").append("<h5>Totalt: " + totalPrice + " kr (Inkl. frakt)</h5>");
+function buyCart() {
+    alert("Thank you! Have a nice day, your package will be delived in 2 days");
+    location.reload();
+    localStorage.clear();
+    $("#prodList").empty();
+}
 
-        */
+        
 

@@ -8,7 +8,10 @@
         "email": "test@test.com",
         "password": "test"
     },{
-        "email": "+54536 customers",
-        "password": "+54536 customers Password."
+        "email": "kund",
+        "password": "password"
+    },{
+        "email": "admin",
+        "password": "admin"
     }
 ]
